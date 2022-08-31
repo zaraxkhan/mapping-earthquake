@@ -14,7 +14,7 @@ let line = [
 
   // Create a polyline using the line coordinates and make the line red.
 L.polyline(line, {
-    color: "blue",
+    color: "white",
     weight: 4,
     lineOpacity: 0.5,
     dashArray: '5,10' 
@@ -28,7 +28,8 @@ cityData.forEach(function(city){
     console.log(city)
     L.circleMarker(city.location, {
         radius: city.population/200000,
-        color: "orange",
+        color: "pink",
+        fillColor:"orange",
         fillOpacity:0.5,
         lineWeight: 4,
     })
@@ -37,10 +38,10 @@ cityData.forEach(function(city){
 });
 
 // Create the tile layer that will be the background of the map
-let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/light-v10',
+    id: 'mapbox/dark-v10',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
